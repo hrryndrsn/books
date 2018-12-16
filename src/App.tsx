@@ -1,9 +1,18 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
-import "./App.css";
 import creds from "./key.json";
 import axios from "axios";
-import BookList from "./components/bookList";
+import BookList from "./bookList";
+import styled from "styled-components";
+import "./App.css"
+
+//////------------------------------------------------------------------------
+
+const BookListContainer = styled.div`
+  margin: 0 auto;
+  max-width: 60vw;
+`
+
+//////------------------------------------------------------------------------
 
 interface Fields {
   bookTitle: string;
@@ -37,7 +46,9 @@ class App extends Component<AppProps, AppState> {
   render() {
     return (
       <div className="App">
-        <BookList readingList={this.state.readingList} />
+        <BookListContainer>
+          <BookList readingList={this.state.readingList} />
+        </BookListContainer>
       </div>
     );
   }
